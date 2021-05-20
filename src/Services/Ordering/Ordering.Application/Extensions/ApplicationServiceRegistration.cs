@@ -16,8 +16,6 @@ namespace Ordering.Application.Extensions
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            //services.AddScoped<IValidator>
-            //services.AddScoped<IOrderRepository, Order>();
 
             return services;
         }

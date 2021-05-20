@@ -22,7 +22,7 @@ namespace Ordering.API.Controllers
         }
 
         [HttpGet("{unserName}", Name = "GetOrder")]
-        [ProducesResponseType(typeof(IEnumerable<OrdersDto>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<OrderDto>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetOrdersByUserName(string userName)
         {
             var query = new GetOrdersListQuery(userName);

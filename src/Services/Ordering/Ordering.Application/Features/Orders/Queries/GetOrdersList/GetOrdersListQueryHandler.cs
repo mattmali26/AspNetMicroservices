@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
-    public class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrdersDto>>
+    public class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrderDto>>
     {
         private readonly IOrderRepository orderRepository;
         private readonly IMapper mapper;
@@ -18,10 +18,10 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
             this.mapper = mapper;
         }
 
-        public async Task<List<OrdersDto>> Handle(GetOrdersListQuery request, CancellationToken cancellationToken)
+        public async Task<List<OrderDto>> Handle(GetOrdersListQuery request, CancellationToken cancellationToken)
         {
             var orderList = await orderRepository.GetOrdersByUserNameAsync(request.UserName);
-            return mapper.Map<List<OrdersDto>>(orderList);
+            return mapper.Map<List<OrderDto>>(orderList);
         }
     }
 }
